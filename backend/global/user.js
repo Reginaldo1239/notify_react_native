@@ -1,18 +1,32 @@
 const Db = require('../db/index');
-exports.emailIsRegister=(email)=>{
+exports.emailIsRegister= async (email)=>{
     let query = 'SELECT id_user from  user WHERE email=? LIMIT 1';
     let queryArray =[email];
     try{
-    let emailExist = Db.select(query,queryArray).then(resultSelect=>{
-        return resultSelect;
-    });
-        if(emailExist.length>0){
-            return true;
-        }else{
-            return false;
-        }
+    let emailExist = await Db.select(query,queryArray);    
+            if(emailExist.length>0){
+                return true;
+            }else{
+                return false;
+            }
     }catch(e){
-        console.log(e);
+        console.log(e)
         return false;
-    } 
+    }  
+}
+exports.getInfoUser = async (email)=>{
+    let query = 'SELECT password,id_user from  user WHERE email=? LIMIT 1';
+    let queryArray =[email];
+    try{
+    let emailExist = await Db.select(query,queryArray);    
+            if(emailExist.length>0){
+                return emailExist[0].password;
+            }else{
+                return false; 
+            }
+    }catch(e){
+        console.log(e) 
+        return false;
+    }  
+
 }
