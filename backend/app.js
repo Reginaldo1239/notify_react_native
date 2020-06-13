@@ -7,3 +7,4 @@ app.use(bodyParser.json());
 app.use('/',routerPublic);
 
 module.exports =app;
+ 

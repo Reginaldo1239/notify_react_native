@@ -4,8 +4,9 @@ const User = require('../../../global/user');
 const Cryptography  = require('../../../global/cryptography');
 exports.registerUser= async (req,res)=>{
     let {name,email,date_of_birth,country,password,confirm_password} = req.body;
-    let erros = [];
+    let erros = []; 
     let msgErro= {msg:''};
+   
     if(!Validation.minLength(name,2)){
         msgErro.msg="name is empty";
         erros.push({name:'name is empty'});
@@ -34,16 +35,20 @@ exports.registerUser= async (req,res)=>{
        try{
      password = await  Cryptography.generateHash(password)
         let resultRegister = await RegisterUserModel.register_user({name,email,date_of_birth,country,password});
-                if(resultRegister.affectedRows==1){
+            console.log(resultRegister)   
+        if(resultRegister.affectedRows==1){
                     res.status(200).send(resultRegister);
                 }else{ 
+                    console.log('500')
                     res.status(500).send({msg:'ocorreu um erro tente novamente'});
                 }
     }catch(e){
-        console.log(e)
+        console.log('500')
             res.status(500).send({msg:'ocorreu um erro tente novamente'});
     }
     }else{
+        console.log(msgErro)
+        console.log('400')
         res.status(400).send(msgErro);
     }
 

@@ -6,23 +6,24 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/login';
 import RegisterUser from './src/screens/register_user';
 
-
+import MsgErroForm  from './src/components/msgErroForm';
 const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator >
-      <Stack.Screen
-           options={{
-           headerShown: false,
-           }} 
-          name="RegisterUser" component={RegisterUser}/>
+    
         <Stack.Screen 
            options={{
            headerShown: false,
            }} 
           name="Login" component={Login}/>
+            <Stack.Screen
+           options={{
+           headerShown: false,
+           }} 
+          name="RegisterUser" component={RegisterUser}/>
       
       </Stack.Navigator>
        
