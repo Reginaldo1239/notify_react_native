@@ -1,19 +1,26 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
+//import Icon from 'react-native-vector-icons/AntDesign'
 import Login from './src/screens/login';
 import RegisterUser from './src/screens/register_user';
+import Home from './src/screens/home';
 
 import MsgErroForm  from './src/components/msgErroForm';
 const Stack = createStackNavigator();
-
 function App() {
+
   return (
     <NavigationContainer>
-      <Stack.Navigator >
-    
+
+      <Stack.Navigator initialRouteName="Home"  >
         <Stack.Screen 
            options={{
            headerShown: false,
@@ -24,12 +31,87 @@ function App() {
            headerShown: false,
            }} 
           name="RegisterUser" component={RegisterUser}/>
-      
+            <Stack.Screen
+            options={{
+              headerShown:false,
+              title:'total de inscritos'
+            }} 
+              name="Home" component={HomeDrawer}
+            />
+     
       </Stack.Navigator>
-       
-       
     </NavigationContainer> 
   );
 }
 
-export default App;
+
+
+
+function HomeDrawer(){
+  const Drawer = createDrawerNavigator();
+  return(  
+    <Drawer.Navigator>
+     <Drawer.Screen
+      drawerLabel={'home'}
+      options={
+        { drawerLabel:'home'}
+      }
+      name='Home' component={Home}/>
+    <Drawer.Screen 
+      options={
+        {drawerLabel:'redes sociais'}
+      }
+      name ='infoSocialNetworks' component={socialNetWorksTabs}/>
+ 
+   <Drawer.Screen 
+      options={
+        {drawerLabel:'notificações'} 
+      }
+      name ='notify' component={Home}/>
+   <Drawer.Screen 
+      name='profile'
+      options={
+        {drawerLabel:'perfil'} 
+      }
+      name ='EditProfile' component={Home}/>
+    </Drawer.Navigator>
+    
+  )
+}
+
+
+function socialNetWorksTabs(){
+  const Tab = createBottomTabNavigator();
+
+  return(
+        <Tab.Navigator>
+          <Tab.Screen
+          
+          options={{
+            tabBarLabel: '',
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="youtube" color={'red'} size={40}/>
+            ),
+          }}  
+          name='socialNetWork' component={Home}/>
+          <Tab.Screen name='socialNetW 'component={Home}
+            options={{tabBarLabel:'',
+            tabBarIcon:({color,size})=>(
+              <Icon name='instagram' size={40} color={'orange'}/>
+            )}}/>
+          <Tab.Screen name= 'socialNetWr' component={Home}
+            options={{tabBarLabel:'',
+            tabBarIcon:({color,size})=>(
+              <Icon name='twitter' size={40} color='blue'/>
+            )}}/>
+          <Tab.Screen name='socialNet' component={Home}
+            options={{tabBarLabel:'',
+            tabBarIcon:({color,size})=>(
+              <MaterialCommunityIcons name='twitch' size={40} color='purple' />
+            )}}
+          />
+        </Tab.Navigator>
+  )
+
+}
+export default App; 
