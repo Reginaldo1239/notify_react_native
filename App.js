@@ -4,14 +4,14 @@ import { View, Text, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
 
 //import Icon from 'react-native-vector-icons/AntDesign'
 import Login from './src/screens/login';
 import RegisterUser from './src/screens/register_user';
 import Home from './src/screens/home';
+import TabsSocialNetWorkUpdateInfo from './src/routes/tab_social_network_update_info';
+import DrawerHome from './src/routes/drawer_home';
 
 import MsgErroForm  from './src/components/msgErroForm';
 const Stack = createStackNavigator();
@@ -19,7 +19,6 @@ function App() {
 
   return (
     <NavigationContainer>
-
       <Stack.Navigator initialRouteName="Home"  >
         <Stack.Screen 
            options={{
@@ -36,15 +35,12 @@ function App() {
               headerShown:false,
               title:'total de inscritos'
             }} 
-              name="Home" component={HomeDrawer}
+              name="Home" component={DrawerHome}
             />
-     
       </Stack.Navigator>
     </NavigationContainer> 
   );
 }
-
-
 
 
 function HomeDrawer(){
@@ -61,9 +57,9 @@ function HomeDrawer(){
       options={
         {drawerLabel:'redes sociais'}
       }
-      name ='infoSocialNetworks' component={socialNetWorksTabs}/>
+      name ='infoSocialNetworks' component={TabsSocialNetWorkUpdateInfo}/>
  
-   <Drawer.Screen 
+   <Drawer.Screen  
       options={
         {drawerLabel:'notificações'} 
       }
@@ -80,38 +76,5 @@ function HomeDrawer(){
 }
 
 
-function socialNetWorksTabs(){
-  const Tab = createBottomTabNavigator();
 
-  return(
-        <Tab.Navigator>
-          <Tab.Screen
-          
-          options={{
-            tabBarLabel: '',
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="youtube" color={'red'} size={40}/>
-            ),
-          }}  
-          name='socialNetWork' component={Home}/>
-          <Tab.Screen name='socialNetW 'component={Home}
-            options={{tabBarLabel:'',
-            tabBarIcon:({color,size})=>(
-              <Icon name='instagram' size={40} color={'orange'}/>
-            )}}/>
-          <Tab.Screen name= 'socialNetWr' component={Home}
-            options={{tabBarLabel:'',
-            tabBarIcon:({color,size})=>(
-              <Icon name='twitter' size={40} color='blue'/>
-            )}}/>
-          <Tab.Screen name='socialNet' component={Home}
-            options={{tabBarLabel:'',
-            tabBarIcon:({color,size})=>(
-              <MaterialCommunityIcons name='twitch' size={40} color='purple' />
-            )}}
-          />
-        </Tab.Navigator>
-  )
-
-}
 export default App; 
