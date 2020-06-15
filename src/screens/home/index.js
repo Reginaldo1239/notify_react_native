@@ -5,12 +5,11 @@ import { Style } from './style';
 
 import LinearGradient from 'react-native-linear-gradient';
 export default function Home({navigation}){
-
     changeRouter=(nameSocialNetwork)=>{
-       // navigation.navigate('ListSubscribers',{nameSocialNetwork:nameSocialNetwork})
-    }
+        navigation.navigate('listSubscribers',{nameSocialNetwork:nameSocialNetwork})
+    } 
     
-    return (
+    return ( 
 <SafeAreaView style={Style.containerHome}>
     <ScrollView>
         <View style={Style.containerSocialNetworks}>
@@ -33,8 +32,8 @@ export default function Home({navigation}){
              <Text style={Style.textSocialNetwork}>1000</Text>
          </LinearGradient>
      </TouchableOpacity> 
-     <TouchableOpacity style={Style.buttonSocialNetwork} >
-     <LinearGradient colors={['#6441a5', '#815fc0','#503484']}  style={Style.boxSocialNetwork} onPress={()=>changeRouter('twitch')} > 
+     <TouchableOpacity style={Style.buttonSocialNetwork} onPress={()=>changeRouter('twitch')} >
+     <LinearGradient colors={['#6441a5', '#815fc0','#503484']}  style={Style.boxSocialNetwork}  > 
             <Text style={Style.textSocialNetwork}>Twitch</Text>
             <Text style={Style.textSocialNetwork} >1000</Text>
     </LinearGradient>
@@ -45,6 +44,7 @@ export default function Home({navigation}){
                     <View style={Style.boxFooter}>
                         <Button buttonStyle={Style.buttonFooter}
                          title={'enviar notificação'}
+                         onPress={()=>navigation.navigate('sendNotify')}
                         ></Button>
                     </View>
                 </View>   

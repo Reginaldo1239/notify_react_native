@@ -14,6 +14,8 @@ import TabsSocialNetWorkUpdateInfo from './src/routes/tab_social_network_update_
 import DrawerHome from './src/routes/drawer_home';
 
 import MsgErroForm  from './src/components/msgErroForm';
+import ListSubscribersSocialNetwork from './src/screens/list_subscribers_social_network';
+import SendNotify from './src/screens/send_notify';
 const Stack = createStackNavigator();
 function App() {
 
@@ -37,7 +39,21 @@ function App() {
             }} 
               name="Home" component={DrawerHome}
             />
-      </Stack.Navigator>
+            <Stack.Screen
+              options={{
+                headerShown:false,
+              }}
+              name='listSubscribers'
+              component={ListSubscribersSocialNetwork}
+              />
+              <Stack.Screen
+                options={{
+                  headerShown:false,
+                  cardStyle:{ backgroundColor: '#F0EFF4', }
+                }}
+                name='sendNotify'
+                component={SendNotify}/>
+      </Stack.Navigator>  
     </NavigationContainer> 
   );
 }
