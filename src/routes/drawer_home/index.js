@@ -2,7 +2,8 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import TabsSocialNetWorkUpdateInfo from '../tab_social_network_update_info';
 import Home from '../../screens/home';
-import EditProfile from '../../screens/edit_profile';
+import EditProfile from '../../screens/edit_profile'; 
+import IconMenu from '../../components/icon_menu';
 
 export default  function DrawerHome(){
     const Drawer = createDrawerNavigator();

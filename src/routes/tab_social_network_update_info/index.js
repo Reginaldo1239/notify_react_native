@@ -1,18 +1,23 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {BackHandler} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import SocialNetwork from '../../screens/social_network';  
-export default function TabsSocialNetWorksUpdateInfo(){
+export default function TabsSocialNetWorksUpdateInfo({navigation}){
     const Tab = createBottomTabNavigator();
-  
+
+ 
+    
     return(
           <Tab.Navigator 
+          
           tabBarOptions={{
             activeBackgroundColor:'#F0EFF4', 
-            labelStyle:{color:'black'}     
-          }}
+            labelStyle:{color:'black'},     
+            backBehavior:'initialRoute'
+          }} 
           >
             <Tab.Screen 
             name='conect/youtube'

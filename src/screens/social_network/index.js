@@ -1,22 +1,22 @@
 import React, { useEffect ,useState} from 'react';
-import {View,ScrollView,Text,TextInput,Image} from 'react-native';
-
+import {View,ScrollView,Text,TextInput,Image,BackHandler} from 'react-native';
 import { Style } from './style';
 import Button from '../../components/button';
+import IconMenu from '../../components/icon_menu';
 export default function socialNetwork({navigation,route}){
-        const [ nameSocialNetwork,setNameSocialNetWork] = useState('');
+        const [ nameSocialNetwork,setNameSocialNetWork] = useState('123');
+        const [start,setStart] = useState(true);
         useEffect(()=>{
-          //console.log(navigation)
-          setNameSocialNetWork(route.name.split('/')[1])
-        })
+          setNameSocialNetWork(route.name.split('/')[1]);
+    
+        }) 
         //select name socialNetwork, according to the end of the route url
-     
-           
         
 
  return( 
     <View>
          <ScrollView> 
+             <IconMenu navigation={navigation}></IconMenu>
              <View style={Style.form}>
                  <View style={Style.formGroupProfile}>
                     <Image

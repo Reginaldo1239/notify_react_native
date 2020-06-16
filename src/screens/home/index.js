@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { Style } from './style';
 
 import LinearGradient from 'react-native-linear-gradient';
+import IconMenu from '../../components/icon_menu';
 export default function Home({navigation}){
     changeRouter=(nameSocialNetwork)=>{
         navigation.navigate('listSubscribers',{nameSocialNetwork:nameSocialNetwork})
@@ -11,6 +12,7 @@ export default function Home({navigation}){
     
     return ( 
 <SafeAreaView style={Style.containerHome}>
+    <IconMenu navigation={navigation}></IconMenu>
     <ScrollView>
         <View style={Style.containerSocialNetworks}>
               <TouchableOpacity style={Style.buttonSocialNetwork} onPress={()=>changeRouter('youtube')} >

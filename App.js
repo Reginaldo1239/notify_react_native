@@ -18,12 +18,12 @@ import ListSubscribersSocialNetwork from './src/screens/list_subscribers_social_
 import SendNotify from './src/screens/send_notify';
 const Stack = createStackNavigator();
 function App() {
-
+ 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home"  >
         <Stack.Screen 
-           options={{
+           options={{  
            headerShown: false,
            }} 
           name="Login" component={Login}/>
