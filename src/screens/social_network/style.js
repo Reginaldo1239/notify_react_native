@@ -7,10 +7,9 @@ export const Style = StyleSheet.create({
         alignItems:'center'
     },
     imageProfile:{
-        width: 150,
+    width: 150,
     height: 150,
     borderRadius: 150,
-
     borderWidth: 0.5,
     borderColor: "red"
     }, 

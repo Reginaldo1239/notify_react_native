@@ -31,6 +31,9 @@ export default  function EditProfile(){
             setConfirmPasswordErro('o campo está vazio');
         }
     }
+        sendForm=()=>{
+
+        }
 return(
      <View style={Style.containerEditProfile}>
             <View style={Style.formLogin}>

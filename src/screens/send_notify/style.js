@@ -19,7 +19,9 @@ export const Style= StyleSheet.create({
     boxSwitch:{
         width:'50%',
         alignItems:'flex-end',
-   
+    },
+    formGroup:{
+        marginTop:15,
     }
     
  

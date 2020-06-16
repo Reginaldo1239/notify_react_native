@@ -9,8 +9,7 @@ export const Style = StyleSheet.create({
         marginRight:10,
         marginTop:3,
         borderBottomWidth:1,
-        borderBottomColor:'red',
-       
+        borderBottomColor:'red', 
     },
     text:{
         fontSize:20,

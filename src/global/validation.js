@@ -35,13 +35,12 @@ export default class Validation{
         }
     }
     static dateOfBirthValid= (date)=>{
+        // o codigo seguinte converte o padrao que o usuario ve ,para o padrao que o backend aceita;
        date= date.split('/');
        console.log('spit')
-       console.log(date)
         date = date.reverse();
         date = date.join('-');
-console.log(date)
-console.log('date')
+
     let regDate = new RegExp(/^\d{4}-\d{2}-\d{2}$/,'g')
     if(/^\d{4}-\d{2}-\d{2}$/.test(date)){
         return true;
@@ -59,4 +58,14 @@ console.log('date')
         }
         return result;
     } 
+    static linkValid= (value)=>{
+        let  regex = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/s;
+      //retornar true é um link valido
+      let result = regex.test(value);
+         if(result){
+             return true;
+         }else{
+             return false;  
+         }
+     }
 } 

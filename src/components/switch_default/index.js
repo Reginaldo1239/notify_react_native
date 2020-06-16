@@ -1,14 +1,14 @@
 import React from 'react';
 import{Switch }from 'react-native';
-
+import {RED,RED_STRONG} from '../../config_style';
 export default function SwitchDefault(props){
     let {value}=props;
     return(
         <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={value ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={()=>{props.onValueChange()} }
+        trackColor={{ false:'#C8C8C8', true: RED }}
+        thumbColor={value ?'white' : 'white'}  
+         ios_backgroundColor="#3e3e3e"
+        onValueChange={()=>{props.onValueChange(value)} }
         value={value} 
         > 
 
