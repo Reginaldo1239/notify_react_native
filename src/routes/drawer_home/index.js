@@ -3,8 +3,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import TabsSocialNetWorkUpdateInfo from '../tab_social_network_update_info';
 import Home from '../../screens/home';
 import EditProfile from '../../screens/edit_profile'; 
-import IconMenu from '../../components/icon_menu';
-
+import ListNotify from '../../screens/list_notify';
 export default  function DrawerHome(){
     const Drawer = createDrawerNavigator();
     return(  
@@ -25,7 +24,7 @@ export default  function DrawerHome(){
         options={
           {drawerLabel:'notificações'} 
         }
-        name ='notify' component={TabsSocialNetWorkUpdateInfo}/>
+        name ='listNotify' component={ListNotify}/>
      <Drawer.Screen 
         name='profile'
         options={

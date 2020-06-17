@@ -6,13 +6,9 @@ import { useIsDrawerOpen } from '@react-navigation/drawer';
 
  
 export default function IconMenu({navigation}){
-    console.log(navigation)
-    // ...
 
-const isDrawerOpen = useIsDrawerOpen();
-    useEffect(()=>{
-        console.log(isDrawerOpen)
-    })
+    const isDrawerOpen = useIsDrawerOpen();
+
     return(
         <View style={{alignItems:'flex-end'}}>
                {isDrawerOpen?(
