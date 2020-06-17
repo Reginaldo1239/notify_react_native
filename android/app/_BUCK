@@ -27,7 +27,7 @@ android_library(
         "src/main/java/**/*.java",
     ]),
     deps = [
-        ":all-libs",
+        ":all-libs", 
         ":build_config",
         ":res",
     ],
