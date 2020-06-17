@@ -20,3 +20,9 @@ export default function Button1(props){
       
     )
 }
+
+//android\app\debug.keystore
+// keytool -exportcert -list -v \
+//-alias notify -keystore android\app\debug.keystore
+//ggg
+//keytool -exportcert -list -v -alias notify -keystore android\app\debug.keystore
