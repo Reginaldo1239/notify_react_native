@@ -20,7 +20,7 @@ exports.getInfoUser = async (email)=>{
     try{
     let emailExist = await Db.select(query,queryArray);    
             if(emailExist.length>0){
-                return emailExist[0].password;
+                return emailExist[0];
             }else{
                 return false; 
             }

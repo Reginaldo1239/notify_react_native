@@ -1,4 +1,4 @@
-package com.notify;
+package com.younotify;
 
 import android.app.Application;
 import android.content.Context;

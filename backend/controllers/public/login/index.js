@@ -19,7 +19,7 @@ exports.login= async (req,res)=>{
        }
 
        if(erros.length==0){ 
-    jwt.sign({ name: 'reginaldo' ,id_user:infoUser.id_user ,profile:'1,2' }, 'privatssseKey', { algorithm: 'HS512' }, function(err, token) {
+        jwt.sign({ name: 'reginaldo' ,id_user : infoUser.id_user ,profile:'1,2' }, 'privatssseKey', { algorithm: 'HS512' }, function(err, token) {
         if(typeof token ==='string'){
             res.status(200).send({token:token})
         }else{

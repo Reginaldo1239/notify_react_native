@@ -42,3 +42,18 @@ exports.equalPassword = (password,confirmPassword)=>{
         return false;
     }
 }
+exports.nameSocialNetwork = (name)=>{
+
+        if(name=='youtube' || name =='instagram' ||name=='twitter'||name=='twitch'){
+            return true;
+        }else{
+            return false;
+        }
+}
+exports.isString = (value)=>{
+    if(typeof value=='string'){
+        return true;
+    }else{
+        return false;
+    }
+} 

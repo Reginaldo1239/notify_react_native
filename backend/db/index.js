@@ -11,7 +11,7 @@ const pool  = mysql.createPool({
 
   exports.insert=async (table,post)=>{
    return new Promise((resolver,reject)=>{   pool.getConnection((err,connection)=>{
-    console.log(err)
+   console.log(err)
         if (err) throw err; // not connected!
         connection.query(`INSERT INTO  ${table} SET ?`,post,(error,results,fields)=>{
             console.log(error)
@@ -23,7 +23,7 @@ const pool  = mysql.createPool({
     })
   }
   exports.select = async(query,arrayValues)=>{
-    console.log(pool)
+   
    // var query = connection.query('SELECT * FROM table WHERE id = ?', [12], function (error, results, fields) {
     return new Promise((resolver,reject)=>{
         pool.getConnection((err,connection)=>{
@@ -37,3 +37,16 @@ const pool  = mysql.createPool({
         }) 
     })
   } 
+  exports.put=(query,arrayValues)=>{
+  //'UPDATE users SET foo = ?, bar = ?, baz = ? WHERE id = ?', ['a', 'b', 'c'
+    connection.query(query, arrayValues, function (error, results, fields) {
+      if (error) throw error;
+      // ...
+    });
+  }
+
+  exports.desconectPool = ()=>{
+    pool.end((err)=>{
+        console.log(err);
+    })
+  }
