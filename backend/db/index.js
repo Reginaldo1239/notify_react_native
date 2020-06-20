@@ -37,14 +37,20 @@ const pool  = mysql.createPool({
         }) 
     })
   } 
-  exports.put=(query,arrayValues)=>{
+  exports.update=(query,arrayValues)=>{
   //'UPDATE users SET foo = ?, bar = ?, baz = ? WHERE id = ?', ['a', 'b', 'c'
-    connection.query(query, arrayValues, function (error, results, fields) {
+  return new Promise((resolver,reject)=>{
+  pool.getConnection((err,connection)=>{
+  connection.query(query, arrayValues, function (error, results, fields) {
       if (error) throw error;
+      resolver(results)
+      reject(error)
       // ...
     });
-  }
-
+    connection.release();
+  })
+}) 
+}
   exports.desconectPool = ()=>{
     pool.end((err)=>{
         console.log(err);

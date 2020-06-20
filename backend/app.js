@@ -11,4 +11,4 @@ app.use('/influencer',auth.auth,routerInfluencer);
 app.use('/',routerPublic);
 
 module.exports =app;
- 
+  

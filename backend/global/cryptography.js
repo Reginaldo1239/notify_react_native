@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
+var jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 exports.generateHash=(password)=>{
   return new Promise((resolver,reject)=>{
@@ -24,8 +24,6 @@ exports.encript = (value)=>{
   value+='';
   const algorithm = 'aes-192-cbc';
   const password = 'Password used to generate key';
-
-
   // Use the async `crypto.scrypt()` instead.
   return new Promise((resolver,reject)=>{
   const key = crypto.scryptSync(password, 'salt', 24);
@@ -54,17 +52,39 @@ const key = crypto.scryptSync(password, 'salt', 24);
 const iv = Buffer.alloc(16, 0); // Initialization vector.
 
 const decipher = crypto.createDecipheriv(algorithm, key, iv);
-
 // Encrypted using same algorithm, key and iv.
   const encrypted =value;
-
   let decrypted = decipher.update(encrypted, 'hex', 'utf8');
- 
   decrypted += decipher.final('utf8');
   resolver(decrypted)
   reject(false)
 }) 
-
-// Prints: some clear text data
-  
 } 
+
+exports.generateTokenJwt = (objectWithValues)=>{
+ // { name: 'reginaldo' ,id_user : infoUser.id_user ,profile:'1,2' }
+ return new Promise((resolver,reject)=>{
+ jwt.sign(objectWithValues, 'privatssseKey', { algorithm: 'HS512' }, function(err, token) {
+  if(err){
+    console.log(err)
+    reject(false);
+  }else{
+    resolver(token);
+  } 
+
+});
+
+ })
+}
+exports.verifyTokenJwt = (token)=>{
+     return  new Promise((resolver,reject)=>{
+    jwt.verify(token, 'privatssseKey' , { algorithms: ['HS512'] }, function (err, payload) {
+      if(err){
+        console.log(err);
+        reject(false)
+      }
+      resolver(payload)
+});
+   })
+
+}
