@@ -1,8 +1,8 @@
 const Db = require('../../../db');
     //verifica se ja existe algum token para a rede social e usuario,o usuario pode ter 1 token por rede social,
-exports.exist_token = async (obj)=>{
+exports.getToken = async (obj)=>{
     let {id_user,name_social_network} = obj;
-    let query = 'SELECT id_user,name_social_network,id_token from token_social_network WHERE id_user=? AND name_social_network=?';
+    let query = 'SELECT id_user,name_social_network,id_token,access_token from token_social_network WHERE id_user=? AND name_social_network=?';
     let queryArray= [id_user,name_social_network];
     return await Db.select(query,queryArray);
 }
@@ -20,7 +20,8 @@ exports.insertNewToken =async(obj)=>{
     }
     return await Db.insert(table,post);
 }
-exports.updateToken = async (obj)=>{
+// o propio usuario inicio a solicitação de atualizacao do token
+exports.userUpdateToken = async (obj)=>{
      let {access_token,scope,token_type,expires_in,id_user,name_social_network}=obj;
      let query = 'UPDATE token_social_network SET access_token=? ,scope=? ,token_type=? ,expires_in=? WHERE id_user=? AND name_social_network=? ';
      let queryArray = [access_token,scope,token_type,expires_in,id_user,name_social_network];
