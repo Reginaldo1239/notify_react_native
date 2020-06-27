@@ -4,6 +4,8 @@ import TabsSocialNetWorkUpdateInfo from '../tab_social_network_update_info';
 import Home from '../../screens/home';
 import EditProfile from '../../screens/edit_profile'; 
 import ListNotify from '../../screens/list_notify';
+import SocialNetwork from '../../screens/social_network';
+
 export default  function DrawerHome(){
     const Drawer = createDrawerNavigator();
     return(  
@@ -16,19 +18,19 @@ export default  function DrawerHome(){
         name='Home' component={Home}/>
       <Drawer.Screen 
         options={
-          {drawerLabel:'redes sociais'}
+          {drawerLabel:'sincronizar'}
         }
-        name ='infoSocialNetworks' component={TabsSocialNetWorkUpdateInfo}/>
+        name ='infoSocialNetworks' component={SocialNetwork}/>
    
      <Drawer.Screen  
-        options={
+        options={ 
           {drawerLabel:'notificações'} 
         }
         name ='listNotify' component={ListNotify}/>
      <Drawer.Screen 
         name='profile'
         options={
-          {drawerLabel:'perfil'} 
+          {drawerLabel:'alterar senha'} 
         }
         name ='EditProfile' component={EditProfile}/>
       </Drawer.Navigator>

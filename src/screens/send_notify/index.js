@@ -98,7 +98,7 @@ export default function SendNotify(){
 return( 
  <Container>
      <ScrollView>
-     <View style={Style.container1}>
+ <View style={Style.container1}>
          <View style={Style.boxNameSocialNetwork} >
              <TextDefault>youtube</TextDefault>
         </View>
@@ -109,6 +109,7 @@ return(
          /> 
     </View>
  </View> 
+    {/* 
      <View style={Style.container1}>
             <View style={Style.boxNameSocialNetwork} >
                       <TextDefault>instagram</TextDefault>
@@ -143,6 +144,7 @@ return(
             </View>
             <MsgErroForm>{socialNetworkError}</MsgErroForm>
         </View> 
+*/}
           <View style={Style.container2}> 
                 <View style={Style.formGroup}>
                     <Label>titulo</Label>

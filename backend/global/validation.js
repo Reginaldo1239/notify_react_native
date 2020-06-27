@@ -57,3 +57,15 @@ exports.isString = (value)=>{
         return false;
     }
 } 
+
+exports.typeProfileUserValid = (typeProfile)=>{
+    let valueReturn = false;
+    switch(typeProfile){
+        case 'follower':
+            valueReturn = true;
+        case 'influencer':
+            valueReturn= true;   
+    }
+    return valueReturn;
+
+}

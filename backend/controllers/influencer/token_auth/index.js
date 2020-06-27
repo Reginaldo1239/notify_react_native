@@ -3,6 +3,7 @@ const TokenAuthModel = require('../../../models/influencer/token_auth');
 const TokenAuthModel1 = require('../../influencer/token_auth')
 const Validation = require('../../../global/validation');
 const Criptography = require('../../../global/cryptography');
+
 exports.tokenAuth=(req,res)=>{
     let {code,status} = req.body;
 }

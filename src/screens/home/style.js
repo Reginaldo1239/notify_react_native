@@ -29,7 +29,7 @@ export const Style = StyleSheet.create({
        //backgroundColor:'blue'    
     },
     buttonSocialNetwork:{
-        width:'48%', 
+        width:'95%', 
         margin:2,
     },
      boxSocialNetwork:{

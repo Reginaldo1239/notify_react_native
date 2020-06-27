@@ -14,14 +14,16 @@ export default function Home({navigation}){
 <SafeAreaView style={Style.containerHome}>
     <IconMenu navigation={navigation}></IconMenu>
     <ScrollView>
+
         <View style={Style.containerSocialNetworks}>
-              <TouchableOpacity style={Style.buttonSocialNetwork} onPress={()=>changeRouter('youtube')} >
+                <Text style={{fontSize:20,fontWeight:'bold'}}> total de inscritos</Text>
+              <View style={Style.buttonSocialNetwork}  >
                  <LinearGradient colors={['#c4302b','#d95652','#ff0000']} style={Style.boxSocialNetwork} >
                      <Text style={Style.textSocialNetwork}  >youtube</Text>
                      <Text style={Style.textSocialNetwork} >1000</Text> 
                 </LinearGradient>
-                </TouchableOpacity>   
-    {/*'#515BD4', '#8134AF', '#DD2A7B','#FEDA77','#F58529'*/}
+                </View>   
+    {/*'#515BD4', '#8134AF', '#DD2A7B','#FEDA77','#F58529'
     <TouchableOpacity style={Style.buttonSocialNetwork} onPress={()=>changeRouter('instagram')} >
          <LinearGradient colors={['#515BD4','#DD2A7B','#F58529']}  style={Style.boxSocialNetwork} >
            <Text style={Style.textSocialNetwork}>instagram</Text>
@@ -39,7 +41,7 @@ export default function Home({navigation}){
             <Text style={Style.textSocialNetwork}>Twitch</Text>
             <Text style={Style.textSocialNetwork} >1000</Text>
     </LinearGradient>
-    </TouchableOpacity> 
+    </TouchableOpacity> */}
                 </View>
         </ScrollView>
         <View style={Style.footer}>

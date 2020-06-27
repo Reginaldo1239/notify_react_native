@@ -29,7 +29,7 @@ export default function TabsSocialNetWorksUpdateInfo({navigation}){
               ),
             }}  
            />
-            <Tab.Screen 
+      {/*    <Tab.Screen 
            name='conect/instagram'
            initialParams={{nameSocialNetwork:'instagram'}}
             component={SocialNetwork}
@@ -54,7 +54,7 @@ export default function TabsSocialNetWorksUpdateInfo({navigation}){
               tabBarIcon:({color,size})=>(
                 <MaterialCommunityIcons name='twitch' size={40} color='#6441a5' />
               )}}
-            />
+              />*/}
           </Tab.Navigator>
     )
   
