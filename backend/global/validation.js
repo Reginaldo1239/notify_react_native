@@ -57,6 +57,17 @@ exports.isString = (value)=>{
         return false;
     }
 } 
+exports.isNumber  = value=>{
+    value = parseInt(value)
+    
+    console.log('typeof value')
+    console.log(typeof value)
+    if(typeof value ==='number'){
+        return true
+    }else{
+        return false;
+    }
+}
 
 exports.typeProfileUserValid = (typeProfile)=>{
     let valueReturn = false;

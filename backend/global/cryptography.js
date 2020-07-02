@@ -10,11 +10,10 @@ exports.generateHash=(password)=>{
             resolver(hash);
         });
     });
-  }) 
+  })  
 }
-exports.chekHash=async (password,passwordHash)=>{
-   return  bcrypt.compare('password', passwordHash, function(err, result) {
-
+exports.checkHash=async (password,passwordHash)=>{
+   return  bcrypt.compare(password, passwordHash, function(err, result) {
         console.log(result)
             return result;
     });

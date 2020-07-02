@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {View,Text,TouchableOpacity,SafeAreaView,ScrollView} from 'react-native';
 import { Button } from 'react-native-elements';
 import { Style } from './style';
 
 import LinearGradient from 'react-native-linear-gradient';
 import IconMenu from '../../components/icon_menu';
+
+
+
 export default function Home({navigation}){
+
+    useEffect(()=>{
+    
+    })
+  
     changeRouter=(nameSocialNetwork)=>{
         navigation.navigate('listSubscribers',{nameSocialNetwork:nameSocialNetwork})
     } 
-    
+     
     return ( 
 <SafeAreaView style={Style.containerHome}>
     <IconMenu navigation={navigation}></IconMenu>
@@ -56,7 +64,7 @@ export default function Home({navigation}){
   
    
    )    
-}   
+}     
 
 /*
 instagram cor logo

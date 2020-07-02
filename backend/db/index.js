@@ -51,6 +51,22 @@ const pool  = mysql.createPool({
   })
 }) 
 }
+  exports.delete = (query)=>{
+    //DELETE FROM posts WHERE title = "wrong"',
+      return new Promise((resolver,reject)=>{
+          pool.getConnection((err,connection)=>{
+            connection.query(query, function (error, results, fields) {
+              //delete from table whe
+              if (error) throw error;
+              console(error)
+              resolver(results);
+              reject(error)
+            })
+
+          })
+      })
+  }
+
   exports.desconectPool = ()=>{
     pool.end((err)=>{
         console.log(err);
