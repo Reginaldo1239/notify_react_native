@@ -1,12 +1,12 @@
 const socialNetwork  = require('../../../global/socialNetwork');
 const subscriberModel  = require('../../../models/client/subscriber');
+const notifyModel  = require('../../../models/client/subscriber');
 const Validation = require('../../../global/validation');
 exports.listSubscribers= async (req,res)=>{
     let {id_user} = req.headers;
     let {page,limit} = req.query;
     let errors = [];
     let msgError = {msg:''};
-    
     if(limit>100&& limit !=undefined){
         errors.push({limit:'limit retorna no maximo 100 itens por solicitação '})
     }
@@ -45,7 +45,7 @@ exports.subscriberSocialnetwork= async (req,res)=>{
     }
     if(errors.length==0){
         try{
-       // let resultInsert = await subscriberModel.subscriberSocialnetwork({id_user,id_social_network});
+       let resultInsert = await subscriberModel.subscriberSocialnetwork({id_user,id_social_network,notify:true});
         res.status(200).send(resultInsert);
         }catch(e){
             console.log(e);
@@ -65,11 +65,34 @@ exports.unsubscribeSocial =  async (req,res)=>{
     let msgError = {msg:''};
         try{
             let resultDelete = await subscriberModel.unsubscribeSocial({id_user,id_social_network});
+            console.log(resultDelete)
              res.status(200).send(resultDelete);
         }catch(e){
-            console.log(e);
+            console.log(e); 
             res.status(500).send({msg:'ocorreu um error'})
         }
 }
- 
+//get info profile influencer and if user is registered
 
+
+exports.ChangeStatusNotify= async(req,res)=>{
+    let {id_user} = req.headers;
+    let {new_status_notify,id_subscriber} = req.body;
+    let errors = [];
+    let msgError = {msg:''}
+    if(!Validation.isBoolean(new_status_notify)){  
+        errors.push({new_status_notify:'valor invalido'});
+        msgError.msg='new_status_notify value invalid '
+    }
+    if(errors.length==0){
+        try{
+            let alterStatusNotify = await subscriberModel.ChangeStatusNotify({id_user,id_subscriber,new_status_notify});
+            res.status(200).send(alterStatusNotify);
+        }catch(e){
+            console.log(e);
+            res.status(500).send({msg:'ocorreu um erro'})
+        }
+    }else{
+        res.status(400).send(msgError)
+    }
+}

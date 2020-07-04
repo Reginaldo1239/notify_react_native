@@ -58,7 +58,7 @@ const pool  = mysql.createPool({
             connection.query(query, function (error, results, fields) {
               //delete from table whe
               if (error) throw error;
-              console(error)
+              console.log(error)
               resolver(results);
               reject(error)
             })
